@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./src/assets/js/vue .js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click = 'addBook'>获取数据</button>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{},
+        methods:{
+            // 数据来自于easymoke模拟数据
+            addBook:function(){
+                axios.get('https://elm.cangdu.org')
+                .then(function(data){
+                    console.log(data);
+                })
+            }
+        }
+    })
+       
+    </script>
+</body>
+
+</html>
