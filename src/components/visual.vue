@@ -1,14 +1,13 @@
 <template>
-  
-    <div id="box" style="width: 100%;height:100%;"></div>
+  <div id="box" style="width: 100%; height: 100%"></div>
 </template>
 <script>
 export default {
- mounted() {
+  mounted() {
     this.createEchart()
   },
   methods: {
-     async createEchart() {
+    async createEchart() {
       // 基于准备好的dom，初始化echarts实例
       var myChart = await this.$echarts.init(document.getElementById('box'))
       // 绘制图表

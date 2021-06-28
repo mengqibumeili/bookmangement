@@ -10,34 +10,17 @@
     <!-- 卡片区域 -->
     <el-card shadow="always">
       <el-table :data="borrowlist" border style="width: 100%">
-        <el-table-column prop="id" label="id" width="180" align="center"> 
-        </el-table-column>
-        <el-table-column prop="name" label="姓名" width="180" align="center">
-        </el-table-column>
-        <el-table-column prop="email" label="Email" width="180" align="center">
-        </el-table-column>
-        <el-table-column prop="datetime" label="借出时间" width="180" align="center">
-        </el-table-column>
-        <el-table-column prop="lease" label="租期" width="180" align="center">
-        </el-table-column>
+        <el-table-column prop="id" label="id" width="180" align="center"> </el-table-column>
+        <el-table-column prop="name" label="姓名" width="180" align="center"> </el-table-column>
+        <el-table-column prop="email" label="Email" width="180" align="center"> </el-table-column>
+        <el-table-column prop="datetime" label="借出时间" width="180" align="center"> </el-table-column>
+        <el-table-column prop="lease" label="租期" width="180" align="center"> </el-table-column>
         <el-table-column label="操作" width="180" align="center">
-           <template slot-scope="scope">
-            <el-button
-              type="primary"
-              icon="el-icon-edit"
-              size="mini"
-             
-            >
-            </el-button>
+          <template slot-scope="scope">
+            <el-button type="primary" icon="el-icon-edit" size="mini"> </el-button>
             <!-- 删除 -->
-            <el-button
-              type="danger"
-              icon="el-icon-delete"
-              size="mini"
-              
-            >
-            </el-button>
-           </template>
+            <el-button type="danger" icon="el-icon-delete" size="mini"> </el-button>
+          </template>
         </el-table-column>
       </el-table>
     </el-card>

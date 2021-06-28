@@ -10,29 +10,15 @@
     <!-- 卡片区域 -->
     <el-card shadow="always">
       <el-table :data="userlist" border style="width: 100%">
-
         <el-table-column type="index" label="#" width="180" align="center"> </el-table-column>
-        <el-table-column prop="username" label="姓名" width="180" align="center">
-        </el-table-column>
+        <el-table-column prop="username" label="姓名" width="180" align="center"> </el-table-column>
         <el-table-column prop="ip" label="ip地址" align="center"> </el-table-column>
         <el-table-column prop="email" label="邮箱" align="center"> </el-table-column>
         <el-table-column label="操作" width="180px" align="center">
           <template slot-scope="scope">
-            <el-button
-              type="primary"
-              icon="el-icon-edit"
-              size="mini"
-             
-            >
-            </el-button>
+            <el-button type="primary" icon="el-icon-edit" size="mini"> </el-button>
             <!-- 删除 -->
-            <el-button
-              type="danger"
-              icon="el-icon-delete"
-              size="mini"
-              
-            >
-            </el-button>
+            <el-button type="danger" icon="el-icon-delete" size="mini"> </el-button>
 
             <!-- 分配角色 -->
             <!-- <el-tooltip

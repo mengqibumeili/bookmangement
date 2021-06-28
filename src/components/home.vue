@@ -12,9 +12,9 @@
       </el-header>
 
       <el-container>
-        <el-aside   :width="isCollapse ? '64px' : '200px'"> 
+        <el-aside :width="isCollapse ? '64px' : '200px'">
           <!-- 显示隐藏按钮 -->
-         <div class="toggle-button" @click="toggleCollapse">|||</div>
+          <div class="toggle-button" @click="toggleCollapse">|||</div>
           <!-- 侧边菜单 -->
           <el-menu
             background-color="#333744"
@@ -22,16 +22,12 @@
             active-text-color="#ffd04b"
             :router="true"
             :unique-opened="true"
-            :collapse = 'isCollapse'
-            :collapse-transition = 'false'
-             :default-active="activePath"
+            :collapse="isCollapse"
+            :collapse-transition="false"
+            :default-active="activePath"
           >
             <!-- 一级菜单 -->
-            <el-submenu
-              :index="item.id + ''"
-              v-for="item in menulist"
-              :key="item.id"
-            >
+            <el-submenu :index="item.id + ''" v-for="item in menulist" :key="item.id">
               <template slot="title">
                 <!-- <i class="el-icon-location"></i> -->
                 <span>{{ item.authName }}</span>
@@ -64,7 +60,7 @@ export default {
     return {
       menulist: [],
       activePath: '',
-      isCollapse: false
+      isCollapse: false,
     }
   },
 
@@ -84,8 +80,7 @@ export default {
     // 获取菜单列表
     async getMenuList() {
       const { data: res } = await this.$axios.get('menu')
-      if (res.meta.status != 200)
-        return this.$message.console.error('获取用户数据失败')
+      if (res.meta.status != 200) return this.$message.console.error('获取用户数据失败')
       this.menulist = res.data
       // console.log(this.menulist)
     },
@@ -95,7 +90,7 @@ export default {
       this.activePath = activePath
     },
     // 控制侧边栏展开
-     toggleCollapse(){
+    toggleCollapse() {
       this.isCollapse = !this.isCollapse
     },
   },
@@ -133,8 +128,8 @@ export default {
 .el-menu {
   background-color: #606266;
 }
-.toggle-button{
-  background-color: #4A5064;
+.toggle-button {
+  background-color: #4a5064;
   font-size: 10px;
   line-height: 24px;
   color: #fff;

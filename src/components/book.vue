@@ -11,35 +11,21 @@
       <!-- 头部区域 -->
       <el-row>
         <el-col>
-          <el-button type="primary" @click="showAddBookDialog"
-            >添加书籍</el-button
-          >
+          <el-button type="primary" @click="showAddBookDialog">添加书籍</el-button>
         </el-col>
       </el-row>
       <!-- 表格区域 -->
       <el-table :data="booklist" border style="width: 100%">
-        <el-table-column type="index" label="#" width="180" align="center">
-        </el-table-column>
-        <el-table-column
-          prop="bookname"
-          label="书名"
-          width="180"
-          align="center"
-        >
-        </el-table-column>
-        <el-table-column prop="author" label="作者" width="180" align="center">
-        </el-table-column>
-        <el-table-column prop="country" label="国家" width="180" align="center">
-        </el-table-column>
-        <el-table-column prop="number" label="数量" width="180" align="center">
-        </el-table-column>
+        <el-table-column type="index" label="#" width="180" align="center"> </el-table-column>
+        <el-table-column prop="bookname" label="书名" width="180" align="center"> </el-table-column>
+        <el-table-column prop="author" label="作者" width="180" align="center"> </el-table-column>
+        <el-table-column prop="country" label="国家" width="180" align="center"> </el-table-column>
+        <el-table-column prop="number" label="数量" width="180" align="center"> </el-table-column>
         <el-table-column label="操作" width="180" align="center">
           <template slot-scope="scope">
-            <el-button type="primary" icon="el-icon-edit" size="mini">
-            </el-button>
+            <el-button type="primary" icon="el-icon-edit" size="mini"> </el-button>
             <!-- 删除 -->
-            <el-button type="danger" icon="el-icon-delete" size="mini" @click="deleteBook">
-            </el-button>
+            <el-button type="danger" icon="el-icon-delete" size="mini" @click="deleteBook"> </el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -47,13 +33,8 @@
 
     <!-- 对话框区域 -->
     <el-dialog title="提示" :visible.sync="addBookDialogVisible" width="30%">
-     <!-- 表单 -->
-      <el-form
-        :model="addBookRuleForm"
-        :rules="addBookRules"
-        ref="addBookRef"
-        label-width="100px"
-      >
+      <!-- 表单 -->
+      <el-form :model="addBookRuleForm" :rules="addBookRules" ref="addBookRef" label-width="100px">
         <el-form-item label="书名" prop="bookname">
           <el-input v-model="addBookRuleForm.bookname"></el-input>
         </el-form-item>
@@ -66,15 +47,12 @@
         <el-form-item label="数量" prop="number">
           <el-input v-model="addBookRuleForm.number"></el-input>
         </el-form-item>
-
       </el-form>
 
       <!-- 确定取消按钮 -->
       <span slot="footer" class="dialog-footer">
         <el-button @click="addBookDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addBook"
-          >确 定</el-button
-        >
+        <el-button type="primary" @click="addBook">确 定</el-button>
       </span>
     </el-dialog>
   </div>
@@ -86,16 +64,14 @@ export default {
     return {
       booklist: [],
       addBookDialogVisible: false,
-      addBookRuleForm:{
-        bookname:'',
-        author:'',
-        country:'',
-        bumber:''
+      addBookRuleForm: {
+        bookname: '',
+        author: '',
+        country: '',
+        bumber: '',
       },
       addBookFormRules: {
-        bookname: [
-          { required: true, message: '请输入书籍名称', trigger: 'blur' },        
-        ],
+        bookname: [{ required: true, message: '请输入书籍名称', trigger: 'blur' }],
       },
     }
   },
@@ -114,14 +90,14 @@ export default {
       this.addBookDialogVisible = true
     },
     // 添加书籍、
-    addBook(){
+    addBook() {
       // this.$axios.post('addbook')
       this.addBookDialogVisible = false
     },
     // 删除书籍
-    deleteBook(){
+    deleteBook() {
       this.getBookList()
-    }
+    },
   },
 }
 </script>

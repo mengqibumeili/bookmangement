@@ -2,13 +2,7 @@
   <div class="login_container">
     <div class="login_box">
       <!-- 登录表单区域 -->
-      <el-form
-        :model="loginForm"
-        :rules="loginFormRules"
-        ref="loginFormRef"
-        label-width="80px"
-        class="login_form"
-      >
+      <el-form :model="loginForm" :rules="loginFormRules" ref="loginFormRef" label-width="80px" class="login_form">
         <!-- 用戶名 -->
         <el-form-item label="用戶名" prop="username">
           <el-input v-model="loginForm.username"></el-input>
@@ -64,11 +58,8 @@ export default {
       this.$refs.loginFormRef.validate(async (vaild) => {
         if (!vaild) return
         const { data: res } = await this.$axios.post('login')
-        if (res.meta.status != 200)
-          return this.$message.console.error(
-            '登录失败，请输入正确的用户名和密码'
-          )
-           // 保存返回的token值
+        if (res.meta.status != 200) return this.$message.console.error('登录失败，请输入正确的用户名和密码')
+        // 保存返回的token值
         window.sessionStorage.setItem('token', res.data.token)
         // 实现页面跳转
         this.$router.push('/home')
